@@ -9,6 +9,7 @@ class LoginAttemptAdmin(admin.ModelAdmin):
     list_filter = ('timestamp',)
     readonly_fields = ('path', 'username', 'ip_address', 'session_key', 'user_agent')
     search_fields = ('username', 'ip_address', 'user_agent', 'path')
+    exclude = ('password',)
 
     def get_actions(self, request):
         actions = super(LoginAttemptAdmin, self).get_actions(request)
